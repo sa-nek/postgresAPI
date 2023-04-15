@@ -14,7 +14,7 @@ class User {
   static async getUserByEmail(email) {
     const userQuery = await postgres.client.query(
       "SELECT * FROM users WHERE email=$1",
-      email
+      [email]
     );
     return userQuery.rows[0];
   }

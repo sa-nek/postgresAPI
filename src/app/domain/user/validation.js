@@ -13,6 +13,7 @@ const userCreation = joi
       "any.required": "Last name is required",
     }),
     email: joi.string().email().required().messages({
+      "string.base": "Email is invalid",
       "string.email": "Email is invalid",
       "any.required": "Email is required",
     }),
@@ -27,6 +28,7 @@ const userCreation = joi
       }),
   })
   .messages({
+    "object.base": "Body is not object",
     "any.required": "No valid data",
   });
 

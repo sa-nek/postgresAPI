@@ -3,6 +3,7 @@ const { validate } = require("../utils/validation");
 const { userCreation } = require("./validation");
 const { UserHandler } = require("./handler");
 const { asyncWrapper } = require("../utils/asyncWrapper");
+const { editUser } = require("./editor");
 
 class UserRouter {
   router;
@@ -18,7 +19,7 @@ class UserRouter {
     validate(req.body, userCreation);
 
     const user = await UserHandler.createUser(req);
-    res.json(user);
+    res.json(editUser(user));
   }
 }
 module.exports = { userRouter: new UserRouter().get() };

@@ -32,4 +32,21 @@ const userCreation = joi
     "any.required": "No valid data",
   });
 
-module.exports = { userCreation };
+const userAuthentication = joi
+  .object()
+  .required()
+  .keys({
+    email: joi.string().required().messages({
+      "string.base": "Email is not valid",
+      "any.required": "Email is required",
+    }),
+    password: joi.string().required().messages({
+      "string.base": "Password is not valid",
+      "any.required": "Password is required",
+    }),
+  })
+  .messages({
+    "any.required": "No data",
+  });
+
+module.exports = { userCreation, userAuthentication };

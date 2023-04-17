@@ -7,7 +7,6 @@ exports.up = (pgm) => {
     id: "id",
     token: { type: "varchar(255)", notNull: true },
     userId: { type: "integer", notNull: true, unique: true },
-    lastName: { type: "varchar(100)" },
     createdAt: {
       type: "timestamp",
       notNull: true,
